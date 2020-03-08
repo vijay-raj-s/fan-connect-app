@@ -1,4 +1,9 @@
-<div> 
-    {{this.showNavbar}}
+<div *ngIf='showNavbar'> 
+    <nav>
+        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+        <a routerLink="/discussion" routerLinkActive="active">Discussion</a>
+        <a routerLink="/profile" routerLinkActive="active">Discussion</a>
+        <a routerLink="/logout" routerLinkActive="active">Logout</a>
+      </nav>
 </div>
 <router-outlet></router-outlet>

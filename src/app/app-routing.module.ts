@@ -5,6 +5,7 @@ import { NeedAuthGuard } from './guards/login-auth.guard';
 import { LoginPageComponent } from './components/login/login.component';
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginPageComponent
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
+    canActivate: [NeedAuthGuard]
   },
   { path: '',
     redirectTo: '/dashboard',

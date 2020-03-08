@@ -11,6 +11,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { NeedAuthGuard } from './guards/login-auth.guard';
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginPageComponent,
     DashboardComponent,
     DiscussionComponent,
-    ProfileComponent
+    ProfileComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
