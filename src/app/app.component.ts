@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'fan-connect-app';
+  showNavbar : boolean = false;
+
+  constructor(private router: Router){}
+
+  ngAfterContentChecked(){
+    if(this.router.url == '/'){
+      return;
+    }  
+    if (this.router.url.includes('login') || this.router.url.includes('register')) {
+      this.showNavbar = false; 
+    } else{
+      this.showNavbar = true; 
+    }
+  }
 }
