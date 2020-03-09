@@ -13,6 +13,9 @@ import { DiscussionComponent } from './components/discussion/discussion.componen
 import { ProfileComponent } from './components/profile/profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
+//Material Design
+import {MatInputModule} from '@angular/material/input';  
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +30,8 @@ import { LogoutComponent } from './components/logout/logout.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    MatInputModule 
   ],
   providers: [NeedAuthGuard],
   bootstrap: [AppComponent]

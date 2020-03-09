@@ -1,0 +1,20 @@
+@import '../../common/color'
+@import '../../common/mixins'
+
+
+.login-container
+    @include fullHWP
+    background-image: url(/assets/images/login-bg.jpg)
+    background-repeat: no-repeat
+    background-size: cover  
+    
+    .backdrop
+        @include flex-center
+        @include fullHWP 
+        backdrop-filter: blur(10px)
+
+        .login-section
+            background: $secondary-color
+            width: 500px
+            height: 400px
+            @include box-shadow

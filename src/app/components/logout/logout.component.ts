@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Constants } from 'src/app/constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-logout',
@@ -8,10 +9,11 @@ import { Constants } from 'src/app/constants';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
     localStorage.removeItem(Constants.TOKEN);
+    this.router.navigateByUrl('/login');
   }
 
 }

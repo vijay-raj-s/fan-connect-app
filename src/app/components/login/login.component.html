@@ -1,4 +1,25 @@
-<div class="card mt-5" style="margin:auto;width: 600px;">
+<div class="login-container" fxLayout="row" fxLayoutAlign="space-between center" > 
+    <div class="backdrop"> 
+      <div class="login-section">
+          <div class="login-label">
+              Log In
+          </div>
+          <div class="login-inputs"> 
+              <div class="input-container">
+                <div> User name </div>
+                <mat-form-field class="example-full-width" floatLabel="never">
+                  <mat-label>User Name</mat-label>
+                  <input matInput placeholder="Ex. Pizza" value="Sushi">
+                </mat-form-field>
+              </div> 
+          </div>
+          <div class="login-submit"> </div>
+          <div class="login-register"> </div>
+      </div>
+    </div>
+</div>
+
+<!-- <div class="card mt-5" style="margin:auto;width: 600px;">
     <div class="card-body">
       <h5 class="card-title">Login</h5>
       <div class="form-group">
@@ -11,4 +32,4 @@
       </div>
       <button type="submit" class="btn btn-primary" (click)="tryLogin()">Login</button>
     </div>
-  </div>
+  </div> -->
