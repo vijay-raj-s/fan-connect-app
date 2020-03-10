@@ -15,6 +15,10 @@ import { LogoutComponent } from './components/logout/logout.component';
 
 //Material Design
 import {MatInputModule} from '@angular/material/input';  
+import {MatButtonModule} from '@angular/material/button';
+import {MatButtonToggleModule} from '@angular/material/button-toggle';
+import { RegisterComponent } from './components/register/register.component';
+import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,9 @@ import {MatInputModule} from '@angular/material/input';
     DashboardComponent,
     DiscussionComponent,
     ProfileComponent,
-    LogoutComponent
+    LogoutComponent,
+    RegisterComponent, 
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -31,7 +37,9 @@ import {MatInputModule} from '@angular/material/input';
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule, 
-    MatInputModule 
+    MatInputModule,
+    MatButtonModule,
+    MatButtonToggleModule
   ],
   providers: [NeedAuthGuard],
   bootstrap: [AppComponent]

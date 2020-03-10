@@ -44,4 +44,9 @@ export class LoginPageComponent {
         });
   }
 
+  navigate(route){
+    debugger;
+    this.router.navigate(route);
+  }
+
 }

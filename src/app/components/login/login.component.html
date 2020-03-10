@@ -6,15 +6,27 @@
           </div>
           <div class="login-inputs"> 
               <div class="input-container">
-                <div> User name </div>
-                <mat-form-field class="example-full-width" floatLabel="never">
-                  <mat-label>User Name</mat-label>
-                  <input matInput placeholder="Ex. Pizza" value="Sushi">
+                <div class="input-label"> Email Address </div>
+                <mat-form-field class="input-field" floatLabel="never"> 
+                  <input matInput  placeholder="Email Address" [(ngModel)]="user.email">
+                </mat-form-field>
+              </div> 
+              <div class="input-container">
+                <div class="input-label password"> 
+                  <span>Password </span>  
+                  <a routerLink="/forgotpassword"> Forgot your password? </a>
+                </div>
+                <mat-form-field class="input-field" floatLabel="never"> 
+                  <input matInput  placeholder="Password" [(ngModel)]="user.password">
                 </mat-form-field>
               </div> 
           </div>
-          <div class="login-submit"> </div>
-          <div class="login-register"> </div>
+          <div class="login-submit"> 
+            <button (click)="tryLogin()" mat-raised-button color="primary">LOGIN</button>
+          </div>
+          <div class="login-register">
+            <span> Don't have an account? <a routerLink="/register" class="create-link">Create a new account</a></span>
+          </div>
       </div>
     </div>
 </div>

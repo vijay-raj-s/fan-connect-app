@@ -1,5 +1,7 @@
 @import '../../common/color'
 @import '../../common/mixins'
+@import '../../common/fonts'
+
 
 
 .login-container
@@ -7,14 +9,50 @@
     background-image: url(/assets/images/login-bg.jpg)
     background-repeat: no-repeat
     background-size: cover  
+    font-family: 'Source Sans Pro'
     
+    a
+        color: $primary-color
+        text-decoration: none
+
     .backdrop
-        @include flex-center
+        @include flex-space-around
         @include fullHWP 
         backdrop-filter: blur(10px)
 
         .login-section
             background: $secondary-color
-            width: 500px
-            height: 400px
+            width: 450px
+            padding: 30px 
             @include box-shadow
+
+            .login-label
+                font-size: 36px
+                text-align: center
+                font-weight: 600
+                margin-bottom: 15px
+
+            .input-container
+                color: $primary-black
+                margin: 0px 50px
+
+                .input-field    
+                    width: 100%
+                    font-weight: 200
+                
+                .password
+                    @include flex-space-between
+
+            .login-submit
+                text-align: center
+                margin: 15px 50px
+
+                button
+                    width: 100%   
+                    height: 50px         
+
+            .login-register
+                text-align: center
+                margin: 0px 75px
+
+
