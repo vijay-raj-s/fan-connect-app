@@ -1,0 +1,97 @@
+@import '../../common/color'
+@import '../../common/mixins'
+@import '../../common/fonts'
+
+$new-discussion-width: 100px
+$navbar-width: 80px
+$page-padding: 30px
+
+.container
+    width: calc(100% - #{$navbar-width} - 2 * (#{$page-padding}))
+    height: calc(100% - 2 * (#{$page-padding})) 
+    margin-left: $navbar-width
+    display: flex
+    background: $secondary-color
+    font-family: 'Source Sans Pro'
+    padding: $page-padding
+    
+    .main-section
+        width: 70%
+        
+        .search-bar-container
+            width: calc(100% - 30px)
+            margin-right: 30px
+            display: flex
+            align-items: center
+
+            .search-bar
+                width: calc(100% - #{$new-discussion-width} - 20px)
+                background: $primary-white
+                border-radius: 10px
+                @include box-shadow
+                height: 50px
+                display: flex  
+                padding: 0px 10px
+                margin: 0px 10px
+
+                img
+                    width: 30px
+
+                input
+                    border: none
+                    height: calc(100% - 15px)
+                    margin: 5px 0px
+                    padding-left: 10px
+                    color: $primary-black
+                    width: 100%
+                    font-size: 18px
+                    font-weight: 200
+                    outline: none 
+
+            .new-discussion
+                width: $new-discussion-width
+                height: 50px
+                button
+                    @include fullHWP
+                    border-radius: 10px
+                    
+                    img
+                        width: 25px
+
+        .filters
+            height: 50px
+            background: $primary-white
+            border-radius: 10px
+            @include box-shadow
+            margin: 10px
+            margin-right: 30px
+            display: flex
+            align-items: center
+            padding: 0px 10px
+
+            div
+                margin: 0px 10px
+
+            img
+                width: 25px
+
+    .sidebar
+        width: 30%
+        height: 100%
+
+        .sections
+            background: $primary-white
+            @include box-shadow
+            height: 50%
+            margin-bottom: 15px 
+
+            .label
+                font-weight: 500
+                font-size: 16px
+                text-align: center
+                background: $primary-black
+                height: 40px
+                color: $primary-white
+                @include flex-center
+       
+ 
