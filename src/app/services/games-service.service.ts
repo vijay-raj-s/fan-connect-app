@@ -11,6 +11,6 @@ export class GamesServiceService {
   }
 
   getCompetitions() {
-    return this.http.get();
+     
   }
 }
