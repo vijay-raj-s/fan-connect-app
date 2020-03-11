@@ -1,9 +1,16 @@
-<div *ngIf='showNavbar'> 
-    <nav>
-        <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-        <a routerLink="/discussion" routerLinkActive="active">Discussion</a>
-        <a routerLink="/profile" routerLinkActive="active">Discussion</a>
-        <a routerLink="/logout" routerLinkActive="active">Logout</a>
-      </nav>
+<div class="app-container" >
+   <div class="content-section">
+    <router-outlet></router-outlet>
+  </div>
 </div>
-<router-outlet></router-outlet>
+<div class="navbar" *ngIf='showNavbar'>
+  <div class="user-img">
+    <img src='assets/images/ic_dashboard_24px.svg'/>
+  </div>
+  <nav class="navbar-content">
+    <a routerLink="/dashboard" routerLinkActive="active"><div><img src='assets/images/ic_dashboard_24px.svg'/></div></a>
+    <a routerLink="/discussion" routerLinkActive="active"><div><img src='assets/images/ic_insert_comment_24px.svg'/></div></a>
+    <a routerLink="/profile" routerLinkActive="active"><div><img src='assets/images/ic_rss_feed_24px.svg'/></div></a>
+    <a routerLink="/logout" routerLinkActive="active"><div><img src='assets/images/ic_rss_feed_24px.svg'/></div></a>
+  </nav>
+</div>

@@ -6,19 +6,20 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginPageComponent } from './components/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
 import { NeedAuthGuard } from './guards/login-auth.guard';
 import { DiscussionComponent } from './components/discussion/discussion.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
 
-//Material Design
-import {MatInputModule} from '@angular/material/input';  
-import {MatButtonModule} from '@angular/material/button';
-import {MatButtonToggleModule} from '@angular/material/button-toggle';
 import { RegisterComponent } from './components/register/register.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AngularMaterialModule } from './angular-material.module';
+
+
+
 
 @NgModule({
   declarations: [
@@ -37,9 +38,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     AppRoutingModule,
     FormsModule,
     BrowserAnimationsModule, 
-    MatInputModule,
-    MatButtonModule,
-    MatButtonToggleModule
+    ReactiveFormsModule,
+    AngularMaterialModule, 
   ],
   providers: [NeedAuthGuard],
   bootstrap: [AppComponent]
