@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GamesService } from 'src/app/services/games-service.service';
+import { Post } from 'src/app/interfaces/post';
 
 @Component({
   selector: 'app-discussion',
@@ -12,6 +13,8 @@ export class DiscussionComponent implements OnInit {
   match: any; 
   headToHead: any;
   standings: any[];
+  postDescription: string = "";
+  posts: Post[] = []
 
   constructor(private gamesService: GamesService) {
     this.currentGameID = history.state.data.gameID;
@@ -34,6 +37,20 @@ export class DiscussionComponent implements OnInit {
         console.log('Standings');
         console.log(this.standings);
       })
+  }
+
+  postData(){
+      let post = {
+        "description": this.postDescription,
+        "profile_img" : "assets/images/profile-img.svg",
+        "prediction_home" : 3,
+        "prediction_away" : 2,
+        "user_name" : "Alex Goldberg",
+        "credibility": 4
+      }
+      this.posts.push(post); 
+      this.postDescription = "";
+
   }
 
 }

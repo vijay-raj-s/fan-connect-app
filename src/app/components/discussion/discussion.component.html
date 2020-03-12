@@ -16,18 +16,46 @@
                 <div class="live-game" *ngIf="match.status == 'IN_PLAY'"> LIVE </div>
                 <div class="finished-game" *ngIf="match.status != 'IN_PLAY'"> {{match.status}} </div> 
             </div>
-            <div class="match-day"> 
+            <div class="match-day" *ngIf="match.matchday"> 
                 Gameweek {{match.matchday}} 
             </div>
             <div class="venue"> 
-                {{match.venue}}
+                Venue:  {{match.venue}}
             </div>
         </div>
         <div class="create-post">
-
+            <div class="profile-img">
+                <img src="assets/images/profile-img.svg" />
+            </div>
+            <div class="post-input">
+                <textarea [(ngModel)]="postDescription" class="post-text-area"> </textarea> 
+            </div>
+            <div class="post-buttons">
+                <div class="options">
+                    <button mat-raised-button color="primary"> <img src="assets/images/attachment.svg"/> </button>
+                    <button mat-raised-button color="primary"><img src="assets/images/gif-icon.svg"/> </button>
+                </div>
+                <div class="post">
+                    <button (click)="postData()" mat-raised-button color="primary"><img src="assets/images/post-icon.svg"/> POST </button>
+                </div> 
+            </div>
         </div>
         <div class="posts-list">
-
+            <div class='post-row' *ngFor="let post of posts">
+                <div class="profile-img">
+                    <img [src]="post.profile_img" />
+                </div>
+                <div class="post-content">
+                    <div class="user-name"> 
+                        <div class="name"> {{post.user_name}} </div>
+                        <div class="credibility"> </div>
+                        <div class="prediction"></div> 
+                    </div> 
+                    <div class="description">
+                            {{post.description}}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="additional-details">
