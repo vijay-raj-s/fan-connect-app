@@ -3,13 +3,25 @@
         <div class="search-bar-container">
             <div class="search-bar">
                 <img src='assets/images/ic_search_24px.svg'>
-                <input type="text" >
+                <input type="text" [(ngModel)]="searchText">
             </div>
             <div class="new-discussion"> <button mat-raised-button color="primary"> <img src='assets/images/ic_add_24px.svg'></button> </div>
         </div>
         <div class="filters">
             <div class="filter-icon"><img src="assets/images/ic_filter_list_24px.svg"/> </div>
-            <div>
+            <div class="filter-container">
+                <form class="example-form">
+                    <mat-form-field class="example-full-width" floatLabel="never">
+                      <input type="text" placeholder="Select Competition" aria-label="Number" matInput [formControl]="myControl" [matAutocomplete]="auto">
+                      <mat-autocomplete #auto="matAutocomplete" (optionSelected)='getCompetitionDetails($event.option.value)'>
+                        <mat-option *ngFor="let option of competitions " [value]="option.id">
+                          {{ option.name }}
+                        </mat-option>
+                      </mat-autocomplete>
+                    </mat-form-field>
+                  </form>                   
+            </div>
+            <!-- <div>
                 <mat-form-field floatLabel="never">
                     <input type="text" placeholder="Enter Location" matInput [formControl]="myControl"
                          [matAutocomplete]="auto">
@@ -41,23 +53,26 @@
                         </mat-option>
                     </mat-autocomplete>
                  </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field floatLabel="never">
-                    <input type="text" placeholder="Enter Location" matInput [formControl]="myControl"
-                         [matAutocomplete]="auto">
-                       <mat-autocomplete #auto="matAutocomplete">
-                         <mat-option *ngFor="let option of options" [value]="option">
-                           {{option}}
-                        </mat-option>
-                    </mat-autocomplete>
-                 </mat-form-field>
-            </div>
+            </div> -->
         </div>
         <div class="feature-game">
             
         </div>
-        <div class="games-list"></div>
+        <div class="games-list">
+            <div class="game-row" *ngFor="let game of weeklyGames | filter : searchText">
+               <div class="home-name"> {{game.homeTeam.name}} </div>
+               <div class="score-div" *ngIf="game.status == 'FINISHED' || game.status == 'IN_PLAY'">
+                    <div class="live-game" *ngIf="game.status == 'IN_PLAY'"> LIVE </div>
+                    <div class="finished-game" *ngIf="game.status == 'FINISHED'"> FINISHED </div> 
+                    <div class="home-score" *ngIf="game.score && game.score.fullTime"> {{game.score.fullTime.homeTeam}}</div> <span class="hiphen"> - </span><div class="away-score" *ngIf="game.score && game.score.fullTime"> {{game.score.fullTime.awayTeam}}</div>
+               </div> 
+               <div class="score-div" *ngIf="game.status != 'FINISHED' && game.status != 'IN_PLAY'">
+                    <div class="vs-label" > Vs</div>
+                </div> 
+               <div class="away-name"> {{game.awayTeam.name}} </div> 
+               <div><button (click)="joinDiscussion(game.id)" mat-raised-button color="primary">Join</button> </div> 
+            </div>
+        </div>
     </div>
     <div class="sidebar">
         <div class="sections">

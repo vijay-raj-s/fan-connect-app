@@ -1,6 +1,87 @@
+@import '../../common/color'
+@import '../../common/mixins'
+@import '../../common/fonts'
+
 $navbar-width: 80px
 
 .container
     width: calc(100% - #{$navbar-width})
     height: 100%
     margin-left: $navbar-width
+    display: flex
+
+    .game-section
+        width: 50%
+        height: 100%
+        
+        .discussion-game
+            height: 200px
+            background-color: $primary-white
+            @include box-shadow
+            border-radius: 10px
+            width: 100%
+            width: calc(100% - 30px)
+            margin: 15px
+
+        .create-post
+            height: 100px
+            background-color: $primary-white
+            @include box-shadow
+            border-radius: 10px
+            width: calc(100% - 30px)
+            margin: 15px
+
+    .additional-details
+        width: 20%
+        height: calc(100% - 60px)
+
+        .head-to-head
+            height: 200px
+            width: calc(100% - 30px)
+            margin: 15px 15px
+            background-color: $primary-white
+            @include box-shadow
+            border-radius: 10px
+            padding: 10px 0px
+
+            
+        
+        .league-table
+            height: 400px
+            overflow: auto
+            width: calc(100% - 30px)
+            margin: 0px 15px
+            background-color: $primary-white
+            @include box-shadow
+            border-radius: 10px
+            padding: 10px 0px
+        
+        .header
+                background-color: $secondary-color
+                margin: 0px 10px
+                color: $primary-black
+                height: 40px
+                width: calc(100% - 20px)
+                @include flex-center
+
+    .sidebar
+        width: 30%
+        height: calc(100% - 50px)
+        margin: 10px
+
+        .sections
+            background: $primary-white
+            @include box-shadow
+            height: 50%
+            margin-bottom: 15px 
+
+            .label
+                font-weight: 500
+                font-size: 16px
+                text-align: center
+                background: $primary-black
+                height: 40px
+                color: $primary-white
+                @include flex-center
+       
+ 

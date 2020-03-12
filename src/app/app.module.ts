@@ -17,6 +17,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
+import { FilterPipe } from './filter.pipe';
 
 
 
@@ -30,7 +31,8 @@ import { AngularMaterialModule } from './angular-material.module';
     ProfileComponent,
     LogoutComponent,
     RegisterComponent, 
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    FilterPipe 
   ],
   imports: [
     BrowserModule,

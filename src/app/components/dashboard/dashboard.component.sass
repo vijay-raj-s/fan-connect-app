@@ -74,7 +74,48 @@ $page-padding: 30px
 
             img
                 width: 25px
+        .games-list
 
+            .game-row
+                @include flex-space-around
+                height: 60px
+                background: $primary-white
+                @include box-shadow
+                margin: 10px 10px
+                margin-right: 30px
+                border-radius: 10px
+                position: relative
+                
+                .score-div
+                    @include flex-center
+                    width: 100px 
+                    text-align: center
+                    
+                    .live-game
+                        position: absolute
+                        top: 20px
+                        left: 10px
+                        width: 50px
+                        border: 1px solid $primary-color
+                        color: $primary-color
+                    
+                    .finished-game
+                        position: absolute
+                        top: 20px
+                        left: 10px
+                        padding: 0px 10px
+                        border: 1px solid $primary-green
+                        color: $primary-green
+
+                    .home-score, .away-score
+                        margin: 0px 10px
+                
+                .home-name
+                    width: 30%
+                    text-align: right
+
+                .away-name
+                    width: 30%
     .sidebar
         width: 30%
         height: 100%
