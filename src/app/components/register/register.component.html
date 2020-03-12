@@ -1,1 +1,54 @@
-<p>register works!</p>
+<div class="signup-container" fxLayout="row" fxLayoutAlign="space-between center" > 
+    <div class="backdrop"> 
+      <div class="signup-section">
+          <div class="signup-label">
+              Sign Up
+          </div>
+          <div class="signup-inputs"> 
+              <div class="input-container">
+                <div class="input-label"> User Name </div>
+                <mat-form-field class="input-field" floatLabel="never"> 
+                  <input matInput  placeholder="User Name" [(ngModel)]="user.username">
+                </mat-form-field>
+              </div> 
+              <div class="input-container">
+                <div class="input-label">Email Address </div>
+                <mat-form-field class="input-field" floatLabel="never"> 
+                  <input matInput  placeholder="Email Address" [(ngModel)]="user.email">
+                </mat-form-field>
+              </div> 
+              <div class="input-container">
+                <div class="input-label password"> 
+                  <span>Password </span>  
+                </div>
+                <mat-form-field class="input-field" floatLabel="never"> 
+                  <input matInput  placeholder="Password" [(ngModel)]="user.password">
+                </mat-form-field>
+              </div> 
+              <div class="input-container">
+                <div class="input-label password"> 
+                  <span> Confirm Password </span>  
+                </div>
+                <mat-form-field class="input-field" floatLabel="never"> 
+                  <input matInput  placeholder="Confirm Password" [(ngModel)]="user.password">
+                </mat-form-field>
+              </div> 
+          </div>
+          <div class="signup-submit"> 
+            <button (click)="trySignup()" mat-raised-button color="primary">Sign Up</button>
+          </div>
+          
+      
+      </div>
+      <div class="signup-logo">
+          <div class="logo"><img src="/assets/images/logo_transparent.png"  width="200" height="200"></div>
+        
+        <div class="signup-register">
+            <span> Already have an account? <a routerLink="/login" class="create-link">Login</a></span>
+          </div>
+
+      </div>
+    </div>
+</div>
+
+
