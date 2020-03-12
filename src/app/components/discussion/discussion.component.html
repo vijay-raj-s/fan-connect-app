@@ -1,7 +1,27 @@
 <div class="container">
     <div class="game-section">
-        <div class="discussion-game"> 
-
+        <div class="discussion-game" *ngIf="match"> 
+            <div class="league-title"> {{match.competition.name}} </div>
+            <div class="score"> 
+                <div class="home-name"> {{match.homeTeam.name}} </div>
+                <div class="score-div" *ngIf="match.status == 'FINISHED' || match.status == 'IN_PLAY'">
+                    <div class="home-score" *ngIf="match.score && match.score.fullTime"> {{match.score.fullTime.homeTeam}}</div> <span class="hiphen"> - </span><div class="away-score" *ngIf="match.score && match.score.fullTime"> {{match.score.fullTime.awayTeam}}</div>
+                </div> 
+                <div class="score-div" *ngIf="match.status != 'FINISHED' && match.status != 'IN_PLAY'">
+                        <div class="vs-label" > VS</div>
+                    </div> 
+                <div class="away-name"> {{match.awayTeam.name}} </div> 
+            </div>
+            <div class="status">
+                <div class="live-game" *ngIf="match.status == 'IN_PLAY'"> LIVE </div>
+                <div class="finished-game" *ngIf="match.status != 'IN_PLAY'"> {{match.status}} </div> 
+            </div>
+            <div class="match-day"> 
+                Gameweek {{match.matchday}} 
+            </div>
+            <div class="venue"> 
+                {{match.venue}}
+            </div>
         </div>
         <div class="create-post">
 
@@ -13,9 +33,61 @@
     <div class="additional-details">
         <div class="head-to-head">
             <div class="header"> Head To Head </div>
+            <div class="club-names">
+                <div class="home-team" *ngIf="headToHead"> {{headToHead.homeTeam.name}} </div>
+                
+                <div class="away-team" *ngIf="headToHead"> {{headToHead.awayTeam.name}}</div>
+            </div>
+            <div class="stats"> 
+                <div class="home-team"> 
+                    <div class="stat-header"> 
+                        <div> Wins</div>
+                        <div> Draws </div>
+                        <div> Losses </div>
+                    </div>
+                    <div class="stat-values" *ngIf="headToHead"> 
+                        <div > {{headToHead.homeTeam.wins}}</div>
+                        <div>{{headToHead.homeTeam.draws}} </div>
+                        <div> {{headToHead.homeTeam.losses}} </div>
+                    </div>
+                </div>
+                <div class="away-team"> 
+                    <div class="stat-header"> 
+                        <div> Wins</div>
+                        <div> Draws </div>
+                        <div> Losses </div>
+                    </div>
+                    <div class="stat-values" *ngIf="headToHead"> 
+                        <div > {{headToHead.awayTeam.wins}}</div>
+                        <div>{{headToHead.awayTeam.draws}} </div>
+                        <div> {{headToHead.awayTeam.losses}} </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="league-table">
             <div class="header"> Current League Standings</div>
+            <div class="table-header"> 
+                <div class='position'>Pos. </div>
+                <div class='crest'> </div>
+                <div class='club'>Club </div>
+                <div class='played'>Pl. </div>
+                <div class='goal-diff'>GD </div>
+                <div class='points'>Pts. </div>
+            </div>
+            <div class="table-row-container">
+                <div class="table-row" *ngFor="let club of standings">
+                    <div class='position'>{{club.position}} </div>
+                    <div class='crest'> <img class='crest-img' [src]="club.team.crestUrl"/> </div>
+                    <div class='club'>{{club.team.name}} </div>
+                    <div class='played'>{{club.playedGames}} </div>
+                    <div class='goal-diff'>{{club.goalDifference}} </div>
+                    <div class='points'>{{club.points}} </div>
+                </div>
+
+            </div>
+            <!-- <div class="show-more" (click)='scroll()'> <img src='assets/images/down_arrow.svg' /></div> -->
+            
         </div>    
     </div>
     <div class="sidebar">

@@ -21,7 +21,12 @@ export class GamesService {
   }
 
   getSingleMatch(id: number){
-    return this.http.get(`${Constants.API_PREFIX}/matches/${id}`)    
+    return this.http.get(`${Constants.API_PREFIX}/matches/${id}`, httpOptions)    
+  }
+
+  getStandings(id: number){
+    return this.http.get(`${Constants.API_PREFIX}/competitions/${id}/standings`, httpOptions)    
+    
   }
   
 }
