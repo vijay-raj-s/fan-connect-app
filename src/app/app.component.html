@@ -5,12 +5,17 @@
 </div>
 <div class="navbar" *ngIf='showNavbar'>
   <div class="user-img">
-    <img src='assets/images/ic_dashboard_24px.svg'/>
+    <img src='assets/images/profile-img.svg'/>
   </div>
   <nav class="navbar-content">
-    <a routerLink="/dashboard" routerLinkActive="active"><div><img src='assets/images/ic_dashboard_24px.svg'/></div></a>
-    <a routerLink="/discussion" routerLinkActive="active"><div><img src='assets/images/ic_insert_comment_24px.svg'/></div></a>
-    <a routerLink="/profile" routerLinkActive="active"><div><img src='assets/images/ic_rss_feed_24px.svg'/></div></a>
-    <a routerLink="/logout" routerLinkActive="active"><div><img src='assets/images/ic_rss_feed_24px.svg'/></div></a>
+    <div>
+      <a routerLink="/dashboard" routerLinkActive="active"><div><img src='assets/images/ic_dashboard_24px.svg'/></div></a>
+      <a routerLink="/discussion" routerLinkActive="active"><div><img src='assets/images/ic_insert_comment_24px.svg'/></div></a>
+      <a routerLink="/profile" routerLinkActive="active"><div><img src='assets/images/ic_rss_feed_24px.svg'/></div></a>
+      
+    </div>
+    <div>
+      <a routerLink="/logout" routerLinkActive="active"><div><img src='assets/images/logout.svg'/></div></a>
+    </div>
   </nav>
 </div>

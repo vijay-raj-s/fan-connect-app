@@ -21,65 +21,47 @@
                     </mat-form-field>
                   </form>                   
             </div>
-            <!-- <div>
-                <mat-form-field floatLabel="never">
-                    <input type="text" placeholder="Enter Location" matInput [formControl]="myControl"
-                         [matAutocomplete]="auto">
-                       <mat-autocomplete #auto="matAutocomplete">
-                         <mat-option *ngFor="let option of options" [value]="option">
-                           {{option}}
-                        </mat-option>
-                    </mat-autocomplete>
-                 </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field floatLabel="never">
-                    <input type="text" placeholder="Enter Location" matInput [formControl]="myControl"
-                         [matAutocomplete]="auto">
-                       <mat-autocomplete #auto="matAutocomplete">
-                         <mat-option *ngFor="let option of options" [value]="option">
-                           {{option}}
-                        </mat-option>
-                    </mat-autocomplete>
-                 </mat-form-field>
-            </div>
-            <div>
-                <mat-form-field floatLabel="never">
-                    <input type="text" placeholder="Enter Location" matInput [formControl]="myControl"
-                         [matAutocomplete]="auto">
-                       <mat-autocomplete #auto="matAutocomplete">
-                         <mat-option *ngFor="let option of options" [value]="option">
-                           {{option}}
-                        </mat-option>
-                    </mat-autocomplete>
-                 </mat-form-field>
-            </div> -->
+             
         </div>
         <div class="feature-game">
             
         </div>
         <div class="games-list">
             <div class="game-row" *ngFor="let game of weeklyGames | filter : searchText">
-               <div class="home-name"> {{game.homeTeam.name}} </div>
+               <div class="home-name"> {{game.homeTeam.name}} <img [src]="game.homeTeam.crest"/> </div>
                <div class="score-div" *ngIf="game.status == 'FINISHED' || game.status == 'IN_PLAY'">
                     <div class="live-game" *ngIf="game.status == 'IN_PLAY'"> LIVE </div>
                     <div class="finished-game" *ngIf="game.status == 'FINISHED'"> FINISHED </div> 
+                    <div class="live-game" *ngIf="game.status == 'POSTPONED'"> POSTPONED </div> 
                     <div class="home-score" *ngIf="game.score && game.score.fullTime"> {{game.score.fullTime.homeTeam}}</div> <span class="hiphen"> - </span><div class="away-score" *ngIf="game.score && game.score.fullTime"> {{game.score.fullTime.awayTeam}}</div>
                </div> 
                <div class="score-div" *ngIf="game.status != 'FINISHED' && game.status != 'IN_PLAY'">
                     <div class="vs-label" > Vs</div>
                 </div> 
-               <div class="away-name"> {{game.awayTeam.name}} </div> 
+               <div class="away-name"><img [src]="game.awayTeam.crest"/> {{game.awayTeam.name}} </div> 
                <div><button (click)="joinDiscussion(game.id)" mat-raised-button color="primary">Join</button> </div> 
+            </div>
+            <div class="no-games" *ngIf="weeklyGames.length == 0">
+                Currently no games this week.
             </div>
         </div>
     </div>
     <div class="sidebar">
         <div class="sections">
             <div class="label">Top Discussions</div> 
+            <div class="disc-row" *ngFor="let discussion of topDiscussions"> 
+                <div class="discussion-name">{{discussion.title}} </div>
+                <div class="people-discussing">{{discussion.people}} discussing this </div>
+            </div>
+
         </div>
         <div class="sections">
             <div class="label">Who to follow </div>
+            <div class="followers-row" *ngFor="let user of followers">
+                <div class="image"> <img [src]="user.image_url"/></div>
+                <div class="user-name"> {{user.name}} </div>
+                <div class="follow" > <div>Follow </div> </div>
+            </div>
         </div>
     </div>
 </div>

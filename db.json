@@ -1,0 +1,54 @@
+{
+  "topDiscussions": [
+    {
+      "id": 1,
+      "title": "Liverpool have been knocked out of CL",
+      "people": "100220",
+      "tags" : ["Liverpool", "football", "Champions League", "Atletico Madrid"]
+    },
+    {
+      "id": 2,
+      "title": "Arsenal are London's number one banter club",
+      "people": "222200",
+      "tags" : ["Arsenal", "football", "London"]
+    },
+    {
+      "id": 3,
+      "title": "Bayern favorites to win CL",
+      "people": "99929",
+      "tags" : ["Bayern Munich", "football", "Germany", "Champions League"]
+    },
+    {
+      "id": 4,
+      "title": "Frank Lampard has beaten Jose thrice already!",
+      "people": "100220",
+      "tags" : ["Chelsea", "football", "Frank Lampard", "Atletico Madrid"]
+    },
+    {
+      "id": 5,
+      "title": "Sancho to reject United for chelsea?",
+      "people": "212213",
+      "tags" : ["Transfers", "football", "Chelsea", "Dortmund"]
+    }
+  ],
+  "whoToFollow": [
+    {
+      "id": 1,
+      "name": "Alex Goldberg",
+      "image_url": "assets/images/Ellipse 15.svg"
+    },
+    {
+      "id": 2,
+      "name": "Elisa Mack",
+      "image_url": "assets/images/Ellipse 16.svg"
+    },
+    {
+      "id": 3,
+      "name": "Joe Cole",
+      "image_url": "assets/images/Ellipse 17.svg"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

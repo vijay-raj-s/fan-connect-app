@@ -14,7 +14,9 @@ export class DiscussionComponent implements OnInit {
   headToHead: any;
   standings: any[];
   postDescription: string = "";
-  posts: Post[] = []
+  posts: Post[] = [];
+  topDiscussions: any;
+  followers: any;
 
   constructor(private gamesService: GamesService) {
     this.currentGameID = history.state.data.gameID;
@@ -26,6 +28,21 @@ export class DiscussionComponent implements OnInit {
         let responseObj : any = response;
         this.match = responseObj.match;
         this.headToHead = responseObj.head2head;
+        
+
+        this.gamesService.getTeams(this.currentCompetitionID).subscribe(response => {
+          let responseObj : any = response;
+          
+            responseObj.teams.map(team => {
+              if(this.match.homeTeam.id == team.id){
+                this.match.homeTeam.crest = team.crestUrl;
+              }
+              if(this.match.awayTeam.id == team.id){
+                this.match.awayTeam.crest = team.crestUrl;
+              }
+            })
+          
+        }) 
         console.log('Match and Head to head');
         console.log(this.match);
         console.log(this.headToHead);
@@ -37,6 +54,17 @@ export class DiscussionComponent implements OnInit {
         console.log('Standings');
         console.log(this.standings);
       })
+
+      this.gamesService.getTopDiscussions().subscribe(response => {
+        this.topDiscussions = response;
+        console.log(response);
+      })
+
+
+      this.gamesService.getFollowers().subscribe(response => {
+        this.followers = response;
+        console.log(response);
+      })
   }
 
   postData(){
@@ -45,7 +73,7 @@ export class DiscussionComponent implements OnInit {
         "profile_img" : "assets/images/profile-img.svg",
         "prediction_home" : 3,
         "prediction_away" : 2,
-        "user_name" : "Alex Goldberg",
+        "user_name" : "Kristen Stewart",
         "credibility": 4
       }
       this.posts.push(post); 

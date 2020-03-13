@@ -28,5 +28,16 @@ export class GamesService {
     return this.http.get(`${Constants.API_PREFIX}/competitions/${id}/standings`, httpOptions)    
     
   }
+
+  getTopDiscussions(){
+    return this.http.get(`http://localhost:3000/topDiscussions`)
+  }
   
+  getFollowers(){
+    return this.http.get(`http://localhost:3000/whoToFollow`)
+  }
+
+  getTeams(id: number){
+    return this.http.get(`${Constants.API_PREFIX}/competitions/${id}/teams`, httpOptions)    
+  }
 }

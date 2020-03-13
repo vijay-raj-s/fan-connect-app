@@ -77,6 +77,8 @@ $page-padding: 30px
         .games-list
             height: calc(100% - 100px)
             overflow: auto
+            .no-games
+                @include flex-center
             .game-row
                 @include flex-space-around
                 height: 60px
@@ -114,9 +116,24 @@ $page-padding: 30px
                 .home-name
                     width: 30%
                     text-align: right
+                    display: flex
+                    justify-content: flex-end
+                    align-items: center
+
+                    img
+                        padding-left: 10px
+                        width: 30px
+                        height: 30px
 
                 .away-name
                     width: 30%
+                    display: flex
+                    align-items: center
+
+                    img
+                        width: 30px
+                        padding-right: 10px
+                        height: 30px
     .sidebar
         width: 30%
         height: 100%
@@ -135,5 +152,42 @@ $page-padding: 30px
                 height: 40px
                 color: $primary-white
                 @include flex-center
+
+            .followers-row
+                display: flex
+                align-items: center
+                .image
+                    width: 20%
+                    img
+                        width: 75px
+                .user-name
+                    width: 50%
+                .follow
+                    width: 30%
+                    div
+                        border: 1px solid $primary-color
+                        color: $primary-color
+                        text-align: center
+                        padding: 5px 0px
+                        margin: 0px 10px
+                        cursor: pointer
+                    div:hover
+                        color: $primary-white
+                        background: $primary-color
+            .disc-row
+                padding: 10px 30px
+                .discussion-name
+                    font-weight: 400
+                    color: $primary-black
+                
+                .people-discussing
+                    font-size: 12px
+                    font-weight: 200
+                    color: $primary-black
        
+            .disc-row:hover
+                @include box-shadow
+                cursor: pointer
+                
+
  

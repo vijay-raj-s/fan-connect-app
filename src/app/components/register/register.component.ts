@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 interface User {
   email?: string;
   password?: string
+  username?: string 
 }
 
 @Component({
@@ -20,6 +21,10 @@ export class RegisterComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  trySignup(){
+
   }
 
 }

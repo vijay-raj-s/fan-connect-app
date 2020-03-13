@@ -19,6 +19,8 @@ export class DashboardComponent implements OnInit {
   filteredOptions: Observable<string[]>;
   competitions : any[] = [];
   weeklyGames: any[] = [];
+  topDiscussions: any;
+  followers: any;
 
   constructor(private gamesService: GamesService, private router: Router) {}
 
@@ -32,6 +34,17 @@ export class DashboardComponent implements OnInit {
     this.gamesService.getCompetitions().subscribe(response => {
       let competitionObj: any = response;
       this.competitions = competitionObj.competitions.filter(x => x.plan === 'TIER_ONE'); 
+      this.getCompetitionDetails(2021);
+    })
+
+    this.gamesService.getTopDiscussions().subscribe(response => {
+      this.topDiscussions = response;
+      console.log(response);
+    })
+
+    this.gamesService.getFollowers().subscribe(response => {
+      this.followers = response;
+      console.log(response);
     })
   }
 
@@ -54,20 +67,25 @@ export class DashboardComponent implements OnInit {
         let isThisWeek = (now.isoWeek() == matchDate.isoWeek()) 
         return isThisWeek; 
       }); 
-
-      // this.weeklyGames.map(game => {
-      //   let matchDate = moment(game.utcDate);
-      //   now.diff(matchDate, 'days') == 0 ? game.isToday = true : game.isToday = false;
-      //   now.diff(matchDate, 'minutes') < 150 ? game.isLive = true : game.isLive = true;
-        
-      // });
+      
+      this.gamesService.getTeams(id).subscribe(response => {
+        let responseObj : any = response;
+        this.weeklyGames.map(game => {
+          responseObj.teams.map(team => {
+            if(game.homeTeam.id == team.id){
+              game.homeTeam.crest = team.crestUrl;
+            }
+            if(game.awayTeam.id == team.id){
+              game.awayTeam.crest = team.crestUrl;
+            }
+          })
+        });
+      }) 
+      
 
 
       console.log(this.weeklyGames);
-    })
-
-    
-    
+    }) 
   }
 
   joinDiscussion(id: number){
