@@ -16,7 +16,7 @@ export class ApiService {
     let auth = false;
     let loginResult : LoginResultModel = {token : '', error: null};
 
-    if (email == 'peter@klaven' && password == 'cityslicka'){
+    if (email == 'vijay@gmail.com' && password == 'abc123'){
       loginResult.token = 'asldk123213lkj213';
       loginResult.error = null;
     };

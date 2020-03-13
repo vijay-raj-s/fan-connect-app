@@ -19,8 +19,10 @@ export class DiscussionComponent implements OnInit {
   followers: any;
 
   constructor(private gamesService: GamesService) {
-    this.currentGameID = history.state.data.gameID;
-    this.currentCompetitionID = history.state.data.competitionID;
+    if(history.state){
+      this.currentGameID = history.state.data.gameID;
+      this.currentCompetitionID = history.state.data.competitionID;
+    }
   }
 
   ngOnInit(): void { 
