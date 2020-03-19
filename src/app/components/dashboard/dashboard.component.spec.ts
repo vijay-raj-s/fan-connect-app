@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
 
 import { DashboardComponent } from './dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -39,6 +39,23 @@ describe('DashboardComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should have atleast one Discussion', fakeAsync(()=>{
+  //   fixture.detectChanges();
+  //   component.ngOnInit();
+  //   fixture.detectChanges();
+  //   tick(2000);
+  //   expect(component.topDiscussions.length).toBeGreaterThan(0); 
+  // }))
+
+  // it('should have atleast one Follower', fakeAsync(()=>{
+  //   fixture.detectChanges();
+  //   component.ngOnInit();
+  //   fixture.detectChanges();
+  //   tick(2000);
+  //   expect(component.followers.length).toBeGreaterThan(0); 
+  // }))
+
 
   
 });

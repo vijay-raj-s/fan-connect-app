@@ -21,7 +21,7 @@ export class LoginPageComponent {
   
 
   constructor(private api: ApiService, private customer: CustomerService, private router: Router) {
-    this.user.email = 'vijay@gmail.com';
+    this.user.email = 'kristen@gmail.com';
     this.user.password = 'abc123';
   }
 
